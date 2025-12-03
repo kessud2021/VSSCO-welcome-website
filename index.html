@@ -5,58 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VSSCO — Official Website</title>
 
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
     body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
         background: #000;
         color: white;
-        overflow-x: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* NAVIGATION BAR */
-    nav {
-        width: 100%;
-        background: #111;
-        padding: 15px 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        z-index: 1000;
+    /* Navbar */
+    .navbar {
+        background-color: #111;
     }
 
-    nav .logo {
-        font-size: 22px;
-        font-weight: bold;
-        letter-spacing: 2px;
+    .navbar-nav .nav-link {
+        color: white !important;
+        transition: color 0.3s;
     }
 
-    nav ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
+    .navbar-nav .nav-link:hover {
+        color: #0ff !important;
     }
 
-    nav ul li {
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    nav ul li:hover {
-        color: #0ff;
-    }
-
-    /* PAGE CONTENT */
+    /* Pages */
     .page {
         display: none;
-        padding: 120px 40px 40px;
-        animation: fadeIn 0.6s ease-in-out;
+        padding: 100px 20px 40px;
         min-height: 100vh;
+        animation: fadeIn 0.6s ease-in-out;
     }
 
-    .active {
+    .active-page {
         display: block;
     }
 
@@ -65,97 +46,117 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* HEADERS */
-    h1 {
-        font-size: 40px;
-        margin-bottom: 10px;
-    }
-
-    h2 {
-        margin-top: 40px;
-    }
-
-    /* CONTACT BOX */
+    /* Contact Box */
     .contact-box {
-        margin-top: 20px;
+        background-color: #111;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 400px;
+        margin: 20px auto;
+        text-align: center;
+        transition: box-shadow 0.3s;
+    }
+
+    .contact-box:hover {
+        box-shadow: 0 0 15px #0ff;
+    }
+
+    /* Headings */
+    h1, h2 {
+        font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
         padding: 20px;
         background: #111;
-        border-radius: 10px;
-        width: fit-content;
+        margin-top: 40px;
     }
 </style>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
-<nav>
-    <div class="logo">VSSCO</div>
-    <ul>
-        <li onclick="openPage('home')">Home</li>
-        <li onclick="openPage('about')">About</li>
-        <li onclick="openPage('projects')">Projects</li>
-        <li onclick="openPage('contact')">Contact</li>
-    </ul>
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-bold" href="#">VSSCO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-white">&#9776;</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#" onclick="openPage('home')">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="openPage('about')">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="openPage('projects')">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="openPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<!-- HOME PAGE -->
-<div id="home" class="page active">
+<!-- PAGES -->
+<div id="home" class="page active-page container text-center">
     <h1>Welcome to VSSCO</h1>
     <p>Your trusted company for innovative ideas and creative experiences.</p>
 </div>
 
-<!-- ABOUT PAGE -->
-<div id="about" class="page">
+<div id="about" class="page container">
     <h1>About Us</h1>
-    <p>
-        VSSCO is a small creative startup founded by Siddharth.<br>
-        We focus on building fun projects, smart ideas, and unique digital creations.
-    </p>
+    <p>VSSCO is a small creative startup founded by Siddharth.<br>
+    We focus on building fun projects, smart ideas, and unique digital creations.</p>
 
     <h2>Our Team</h2>
-    <p>- Siddharth — Founder & Developer<br>
-       - Vihaan - Developer, Compiler<br>
-       - Shreeya — Designer<br>
-       - Vidit — Testing & Ideas
-    </p>
+    <ul>
+        <li>Siddharth — Founder & Developer</li>
+        <li>Vihaan — Developer, Compiler</li>
+        <li>Shreeya — Designer</li>
+        <li>Vidit — Testing & Ideas</li>
+        <li>Shiva — Decorator</li>
+    </ul>
 </div>
 
-<!-- PROJECTS PAGE -->
-<div id="projects" class="page">
+<div id="projects" class="page container">
     <h1>Our Projects</h1>
-    <p>• Light Shows<br>
-       • Arduino Animations<br>
-       • Mini Games<br>
-       • School Events Branding<br><br>
-       More coming soon!
-    </p>
+    <ul>
+        <li>Light Shows</li>
+        <li>Arduino Animations</li>
+        <li>Mini Games</li>
+        <li>School Events Branding</li>
+    </ul>
+    <p>More coming soon!</p>
 </div>
 
-<!-- CONTACT PAGE -->
-<div id="contact" class="page">
+<div id="contact" class="page container text-center">
     <h1>Contact Us</h1>
     <div class="contact-box">
-        <p><b>Email:</b> contact@vssco.com</p>
-        <p><b>Location:</b> India</p>
+        <p><strong>Email:</strong> contact@vssco.com</p>
+        <p><strong>Location:</strong> India</p>
     </div>
 </div>
 
 <!-- BACKGROUND MUSIC -->
-<audio id="bgm" loop autoplay>
-    <!-- Replace music.mp3 with your own MP3 file -->
+<audio id="bgm" loop preload="none" controls>
     <source src="music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
 </audio>
 
+<!-- FOOTER -->
+<footer>
+    &copy; 2025 VSSCO. All rights reserved.
+</footer>
+
+<!-- BOOTSTRAP JS & CUSTOM JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 function openPage(pageId) {
     const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.classList.remove('active'));
-
-    document.getElementById(pageId).classList.add('active');
+    pages.forEach(p => p.classList.remove('active-page'));
+    document.getElementById(pageId).classList.add('active-page');
 }
 
-// Autoplay fix for browsers
+// Autoplay fix
 window.addEventListener("click", () => {
     const music = document.getElementById("bgm");
     if (music.paused) music.play();
